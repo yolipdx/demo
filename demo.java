@@ -14,14 +14,20 @@ I think this program could kind of show my ability of coding
 
 */
 
-
-	public int compareVersion(String version1, String version2) {
+class Solution {
+    public int compareVersion(String version1, String version2) {
         return compare(version1, 0, version2, 0);        
     }
+    
 
     private int compare(String version1, int i1, String version2, int i2) {
         int v1 = 0, v2 = 0;
+        
+        // 易错点！！！！
         if (i1 >= version1.length() && i2 >= version2.length()) return 0;
+        //else if (i2 >= version2.length())   return 1;       
+        //else if (i1 >= version1.length())   return -1;
+        
         
         // calculate v1.
         int i = 0;
@@ -34,6 +40,7 @@ I think this program could kind of show my ability of coding
         i1 = i + 1;
         
         // calculate v2.
+        i = 0;
         for (i = i2; i < version2.length(); ++i) {
             if (version2.charAt(i) == '.') break;
             v2 = v2 * 10 + version2.charAt(i) - '0';
@@ -46,3 +53,4 @@ I think this program could kind of show my ability of coding
         else if (v1 < v2)   return -1;
         else return compare(version1, i1, version2, i2);  
     }
+}
