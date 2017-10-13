@@ -22,7 +22,7 @@ class Solution {
     private int compare(String version1, int i1, String version2, int i2) {
         if (i1 >= version1.length() && i2 >= version2.length()) return 0;
 		
-		int v1 = 0, v2 = 0;
+        int v1 = 0, v2 = 0;
         // calculate v1.
         int i = 0;
         for (i = i1; i < version1.length(); ++i) {
