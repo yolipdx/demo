@@ -18,17 +18,11 @@ class Solution {
     public int compareVersion(String version1, String version2) {
         return compare(version1, 0, version2, 0);        
     }
-    
 
     private int compare(String version1, int i1, String version2, int i2) {
-        int v1 = 0, v2 = 0;
-        
-        // 易错点！！！！
         if (i1 >= version1.length() && i2 >= version2.length()) return 0;
-        //else if (i2 >= version2.length())   return 1;       
-        //else if (i1 >= version1.length())   return -1;
-        
-        
+		
+		int v1 = 0, v2 = 0;
         // calculate v1.
         int i = 0;
         for (i = i1; i < version1.length(); ++i) {
@@ -48,9 +42,9 @@ class Solution {
         
         // next i2
         i2 = i + 1;
-    
-        if      (v1 > v2)   return 1;
-        else if (v1 < v2)   return -1;
-        else return compare(version1, i1, version2, i2);  
+          
+        if (v1 > v2) return 1;
+        if (v1 < v2) return -1;
+        return compare(version1, i1, version2, i2);
     }
 }
